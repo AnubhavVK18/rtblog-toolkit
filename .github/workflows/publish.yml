@@ -1,0 +1,29 @@
+name: Auto Publish Markdown to WP
+
+on:
+  push:
+    paths:
+      - 'posts/**.md'  # Only trigger when a .md file is pushed in posts/
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish to WordPress
+        run: node publish.js
+        env:
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+          WP_URL: ${{ secrets.WP_URL }}
