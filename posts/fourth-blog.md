@@ -10,4 +10,4 @@ It showcases how Markdown content can be auto-published to WordPress using Node.
 - GitHub Actions brings automation magic
 - WordPress REST API makes integration easy
 
-Thanks for reading! 🙌
+Thanks for reading mate! 🙌
